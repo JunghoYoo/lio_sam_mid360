@@ -21,7 +21,6 @@ sudo apt install \
   ros-<ros2>-perception-pcl \
   ros-<ros2>-pcl-msgs \
   ros-<ros2>-vision-opencv \
-  ros-<ros2>-xacro \
   libgtsam-dev libgtsam-unstable-dev
 ```
 
@@ -69,7 +68,7 @@ Note: The service name `/lio_sam/save_map` follows the original namespace; the t
 - DDS/QoS: tune if running over networks with Livox drivers.
 
 ## Issues
-- There was a large bias when using Livox IMU. This lead to an inaccurate incremental odometry estimate
+- There was a large bias when using Livox IMU. This lead to an inaccurate incremental odometry estimate.
   
 ## Credits
 - Adaptation and maintenance: Vishnuraj A
