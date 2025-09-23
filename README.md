@@ -40,6 +40,8 @@ Edit `config/params.yaml`:
 
 Default static TFs in `launch/run.launch.py` assume co-located IMU and lidar; adjust if your mounting differs.
 
+Edit the fov of the Lidar setting. For Livox MID360 (Default) it is -7 to 52 degree.
+
 ## Run
 ```
 ros2 launch lio_sam_mid360 run.launch.py
