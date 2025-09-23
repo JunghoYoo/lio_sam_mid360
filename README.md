@@ -66,6 +66,9 @@ Note: The service name `/lio_sam/save_map` follows the original namespace; the t
 - Ensure Livox point type provides per-point time (relative within scan) and ring/channel index. Adapt `imageProjection.cpp` if your fields differ.
 - DDS/QoS: tune if running over networks with Livox drivers.
 
+## Issues
+- There was a large bias when using Livox IMU. This lead to an inaccurate incremental odometry estimate
+  
 ## Credits
 - Adaptation and maintenance: Vishnuraj A
 - Based on the original LIO-SAM by Tixiao Shan et al. See `LICENSE` and original repository for citations.
