@@ -6,6 +6,8 @@ Adapted LIO-SAM for Livox MID-360. This fork renames the package to `lio_sam_mid
 - Livox MID-360 point cloud and timing assumptions
 - Clean ROS 2 launch (`run.launch.py`)
 - Same node graph as LIO-SAM (image projection, feature extraction, IMU preintegration, map optimization)
+- Directly supports ROS Bag Integration
+- Supports both 6-axis and 9-axis IMUs
 
 ## Requirements
 - Ubuntu 22.04 + ROS 2 Humble (other ROS 2 distros may work)
