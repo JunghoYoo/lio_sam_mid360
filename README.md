@@ -56,6 +56,7 @@ ros2 service call /lio_sam/save_map lio_sam_mid360/srv/SaveMap "{resolution: 0.2
 ```
 
 Note: The service name `/lio_sam/save_map` follows the original namespace; the type is from this package.
+![Uploading image.png…]()
 
 ## Notes
 - Ensure Livox point type provides per-point time (relative within scan) and ring/channel index. Adapt `imageProjection.cpp` if your fields differ.
