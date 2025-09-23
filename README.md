@@ -55,6 +55,8 @@ ros2 bag play your_data
 ros2 service call /lio_sam/save_map lio_sam_mid360/srv/SaveMap "{resolution: 0.2, destination: /tmp/LOAM}"
 ```
 <img width="1900" height="938" alt="image" src="https://github.com/user-attachments/assets/71c4b066-bc69-43f3-b2f0-d133372c79ad" />
+<img width="1885" height="931" alt="image_1" src="https://github.com/user-attachments/assets/e914fd49-680f-42c4-94af-ef969f65a800" />
+
 
 Note: The service name `/lio_sam/save_map` follows the original namespace; the type is from this package.
 
