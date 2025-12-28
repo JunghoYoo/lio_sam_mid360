@@ -14,14 +14,20 @@ Adapted LIO-SAM for Livox MID-360. This fork renames the package to `lio_sam_mid
 - GTSAM 4.x (`libgtsam-dev` and `libgtsam-unstable-dev`)
 - PCL, OpenCV (installed via ROS packages below)
 
-Install ROS packages (replace `<ros2>` with your distro, e.g., `humble`):
+Install ROS packages (replace `${ROS_DISTRO}` with your distro, e.g., `humble`):
 ```
 sudo apt update
 sudo apt install \
-  ros-<ros2>-perception-pcl \
-  ros-<ros2>-pcl-msgs \
-  ros-<ros2>-vision-opencv \
-  libgtsam-dev libgtsam-unstable-dev
+  ros-${ROS_DISTRO}-perception-pcl \
+  ros-${ROS_DISTRO}-pcl-msgs \
+  ros-${ROS_DISTRO}-cv-bridge \
+  ros-${ROS_DISTRO}-image-geometry
+```
+
+```
+sudo add-apt-repository ppa:borglab/gtsam-release-4.1
+sudo apt update
+sudo apt install libgtsam-dev libgtsam-unstable-dev
 ```
 
 ## Build
@@ -29,7 +35,7 @@ sudo apt install \
 cd ~/ros2_ws/src
 # this folder should be at ~/ros2_ws/src/LIO_SAM_MID360
 cd ..
-colcon build --symlink-install
+colcon build --symlink-install --packages-select lio_sam_mid360
 source install/setup.bash
 ```
 
