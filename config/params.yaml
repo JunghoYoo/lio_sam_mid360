@@ -2,10 +2,13 @@
   ros__parameters:
 
     # Topics
-    pointCloudTopic: "livox/lidar"                        # Point cloud data (Not CustomMsg format) - Matches your 'ros2 topic list' - livox/pointcloud with livox_coverter(for rosbag), livox/lidar with lidar HW 
+    #pointCloudTopic: "livox/lidar"                   # Point cloud data - Matches your 'ros2 topic list'
+    pointCloudTopic: "livox/pointcloud"                   # Point cloud data - Matches your 'ros2 topic list' - ROSbag + livox_converter(custom->pointcloud2 format)
     imuTopic:        "livox/imu"                          # IMU data
     odomTopic:       "odometry/imu"                       # IMU pre-preintegration odometry, same frequency as IMU
     gpsTopic:        "odometry/gps"                       # GPS odometry topic from navsat, see module_navsat.launch file
+
+    use_sim_time:     true                                # set to true when using rosbag    
 
     # Frames
     lidarFrame:      "lidar_link"                         # Verify this matches the frame_id in /livox/lidar
@@ -43,7 +46,10 @@
     imuRPYWeight:    0.00
 
     # Extrinsics
-    extrinsicTrans:  [ 0.0,  0.0,  0.0 ]
+    # (MID-360 built-in IMU position from user manual)
+    # IMU position in point cloud coordinates: x=11.0mm, y=23.29mm, z=-44.12mm
+    # Reference: https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Mid360/Livox_Viewer_2_User_Manual_EN_v1.2.pdf
+    extrinsicTrans:  [ 0.011,  0.02329,  -0.04412 ]
     extrinsicRot:    [ 1.0,  0.0,  0.0,
                         0.0,  1.0,  0.0,
                         0.0,  0.0,  1.0 ]
