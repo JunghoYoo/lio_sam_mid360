@@ -49,7 +49,7 @@
     # (MID-360 built-in IMU position from user manual)
     # IMU position in point cloud coordinates: x=11.0mm, y=23.29mm, z=-44.12mm
     # Reference: https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Mid360/Livox_Viewer_2_User_Manual_EN_v1.2.pdf
-    extrinsicTrans:  [ 0.011,  0.02329,  -0.04412 ]
+    extrinsicTrans:  [ 0.011,  0.02329,  -0.04412 ] # lidar2Imu
     extrinsicRot:    [ 1.0,  0.0,  0.0,
                         0.0,  1.0,  0.0,
                         0.0,  0.0,  1.0 ]
