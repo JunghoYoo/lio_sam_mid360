@@ -606,6 +606,10 @@ public:
 
         // add loop constriant
         loopIndexContainer[loopKeyCur] = loopKeyPre;
+
+        // Log loop closure info
+        RCLCPP_INFO(get_logger(), "Loop closure detected: cur=%d pre=%d fitness=%.4f",
+                    loopKeyCur, loopKeyPre, noiseScore);
     }
 
     bool detectLoopClosureDistance(int *latestID, int *closestID)

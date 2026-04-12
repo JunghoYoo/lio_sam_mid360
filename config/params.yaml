@@ -28,9 +28,9 @@
                                                           # Warning: the code deletes "LOAM" folder then recreates it.
                                                           # See "mapOptimization" for implementation
     # Sensor Settings
-    sensor: velodyne                                      # lidar sensor type, either 'velodyne', 'ouster' or 'livox': Critical not to drift with MID-360             
-    N_SCAN: 16                                            # number of lidar channels (i.e., Velodyne/Ouster: 16, 32, 64, 128, Livox Horizon: 6)
-    Horizon_SCAN: 1800                                    # lidar horizontal resolution (Velodyne:1800, Ouster:512,1024,2048, Livox Horizon: 4000)
+    sensor: livox                                      # lidar sensor type, either 'velodyne', 'ouster' or 'livox': Critical not to drift with MID-360             
+    N_SCAN: 4                                            # number of lidar channels (i.e., Velodyne/Ouster: 16, 32, 64, 128, Livox Horizon: 6)
+    Horizon_SCAN: 3200                                    # lidar horizontal resolution (Velodyne:1800, Ouster:512,1024,2048, Livox Horizon: 4000)
     downsampleRate:  1                                    # default: 1, downsample if too many points
     # Updated for MID-360 range
     lidarMinRange:   1.0                                  # default: 1.0, minimum lidar range
@@ -64,9 +64,9 @@
     surfFeatureMinValidNum:     100
 
     # Voxel filter params
-    odometrySurfLeafSize:       0.4                       # default: 0.4 outdoor, 0.2 indoor
-    mappingCornerLeafSize:      0.2                       # default: 0.2 outdoor, 0.1 indoor
-    mappingSurfLeafSize:        0.4                       # default: 0.4 outdoor, 0.2 indoor
+    odometrySurfLeafSize:       0.2                       # default: 0.4 outdoor, 0.2 indoor
+    mappingCornerLeafSize:      0.1                       # default: 0.2 outdoor, 0.1 indoor
+    mappingSurfLeafSize:        0.2                       # default: 0.4 outdoor, 0.2 indoor
 
     # robot motion constraint (in case you are using a 2D robot)
     z_tollerance:               1000.0                    # meters
