@@ -53,29 +53,29 @@ def generate_launch_description():
         # --- LIO-SAM Nodes ---
         Node(
             package='lio_sam_mid360',
-            executable='lio_sam_mid360_imuPreintegration',
-            name='lio_sam_mid360_imuPreintegration',
+            executable='imuPreintegration',
+            name='imuPreintegration',
             parameters=[parameter_file],
             output='screen'
         ),
         Node(
             package='lio_sam_mid360',
-            executable='lio_sam_mid360_imageProjection',
-            name='lio_sam_mid360_imageProjection',
+            executable='imageProjection',
+            name='imageProjection',
             parameters=[parameter_file],
             output='screen'
         ),
         Node(
             package='lio_sam_mid360',
-            executable='lio_sam_mid360_featureExtraction',
-            name='lio_sam_mid360_featureExtraction',
+            executable='featureExtraction',
+            name='featureExtraction',
             parameters=[parameter_file],
             output='screen'
         ),
         Node(
             package='lio_sam_mid360',
-            executable='lio_sam_mid360_mapOptimization',
-            name='lio_sam_mid360_mapOptimization',
+            executable='mapOptimization',
+            name='mapOptimization',
             parameters=[parameter_file],
             output='screen'
         ),

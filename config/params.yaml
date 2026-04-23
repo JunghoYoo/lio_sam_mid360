@@ -2,13 +2,13 @@
   ros__parameters:
 
     # Topics
-    #pointCloudTopic: "livox/lidar"                   # Point cloud data - Matches your 'ros2 topic list'
-    pointCloudTopic: "livox/pointcloud"                   # Point cloud data - Matches your 'ros2 topic list' - ROSbag + livox_converter(custom->pointcloud2 format)
+    pointCloudTopic: "livox/lidar"                     # Point cloud data - Matches your 'ros2 topic list'
+    #pointCloudTopic: "livox/pointcloud"               # ROSbag + livox_converter(custom->pointcloud2 format)
     imuTopic:        "livox/imu"                          # IMU data
     odomTopic:       "odometry/imu"                       # IMU pre-preintegration odometry, same frequency as IMU
     gpsTopic:        "odometry/gps"                       # GPS odometry topic from navsat, see module_navsat.launch file
 
-    use_sim_time:     true                                # set to true when using rosbag    
+    use_sim_time:     false                               # set to true when using rosbag
 
     # Frames
     lidarFrame:      "lidar_link"                         # Verify this matches the frame_id in /livox/lidar

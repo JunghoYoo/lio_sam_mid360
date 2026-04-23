@@ -35,12 +35,12 @@ struct LivoxPointXYZIRT {
     PCL_ADD_INTENSITY;
     uint8_t tag;
     uint8_t line;
-    float time;
+    double timestamp;
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 } EIGEN_ALIGN16;
 POINT_CLOUD_REGISTER_POINT_STRUCT(LivoxPointXYZIRT,
     (float, x, x) (float, y, y) (float, z, z) (float, intensity, intensity)
-    (uint8_t, tag, tag) (uint8_t, line, line) (float, time, time)
+    (uint8_t, tag, tag) (uint8_t, line, line) (double, timestamp, timestamp)
 )
 
 
@@ -293,7 +293,10 @@ public:
         
         laserCloudIn->points.resize(tmpLivoxCloudIn->size());
         laserCloudIn->is_dense = tmpLivoxCloudIn->is_dense;
-        
+
+        // offset_time in livox driver is absolute nanoseconds; subtract scan start to get relative offset
+        double scanStartTime = stamp2Sec(currentCloudMsg.header.stamp);
+
         for (size_t i = 0; i < tmpLivoxCloudIn->size(); i++)
         {
             auto &src = tmpLivoxCloudIn->points[i];
@@ -302,16 +305,13 @@ public:
             dst.y = src.y;
             dst.z = src.z;
             dst.intensity = src.intensity;
-            
-            // For Livox, we'll calculate an artificial ring based on vertical angle
-            // since Livox doesn't have traditional rings
+
             PointType tempPoint;
             tempPoint.x = src.x;
             tempPoint.y = src.y;
             tempPoint.z = src.z;
             dst.ring = calculateLivoxRing(tempPoint);
-            
-            dst.time = src.time;
+            dst.time = static_cast<float>(src.timestamp * 1e-9 - scanStartTime);
         }
     }
         else
@@ -368,7 +368,7 @@ public:
             deskewFlag = -1;
             for (auto &field : currentCloudMsg.fields)
             {
-                if (field.name == "time" || field.name == "t")
+                if (field.name == "time" || field.name == "t" || field.name == "timestamp")
                 {
                     deskewFlag = 1;
                     break;
